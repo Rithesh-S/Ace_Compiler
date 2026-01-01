@@ -1,0 +1,7 @@
+#compiler exe file
+build/*
+!build/.gitkeep
+
+#script file
+src/*
+!src/.gitkeep
