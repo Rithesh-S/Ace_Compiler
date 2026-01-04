@@ -42,7 +42,12 @@ void Lexer::scanToken() {
 
         default:
             if(isDigit(curr_)) {
-                consume(TokenType::NUMBER);
+                std::string num = "";
+                while(isDigit(curr_)) {
+                    num += curr_;
+                    next();
+                }
+                consume(TokenType::NUMBER, num);
             } else {
                 std::cerr << "\033[31mERROR: Undefined Data Type Provided: " << curr_ << "\033[0m" << std::endl;
                 next();
@@ -59,8 +64,9 @@ bool Lexer::isDigit(char c) {
     return c <= '9' && c >= '0';
 }
 
-void Lexer::consume(TokenType type) {
-    tokens.push_back(Token(type,curr_));
+void Lexer::consume(TokenType type, std::string num) {
+    if(num != "")  tokens.push_back(Token(type, num));
+    else  tokens.push_back(Token(type,curr_));
     next();
 }
 

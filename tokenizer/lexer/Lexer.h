@@ -24,7 +24,7 @@ class Lexer {
         void scanToken();
         bool isAtEnd();
         bool isDigit(char c);
-        void consume(TokenType type);
+        void consume(TokenType type, std::string num = "");
         void next();
 
 };
