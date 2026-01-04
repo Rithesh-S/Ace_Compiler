@@ -54,16 +54,13 @@ int main(int argc,char* argv[]) {
         return 1;
     } 
 
-    std::string line;
+    std::string line, lines = "";
 
-    while(std::getline(inFile, line)) {
-        Lexer lexer = Lexer(line);
-        lexer.scanTokens();
-        for (auto i: lexer.tokens) {
-            cout<<tokenTypeToString(i.type)<<" "<<i.token<<endl;
-        }
+    while(std::getline(inFile, line)) lines += line + '\n';
+    
+    Lexer lexer = Lexer(lines);
+    lexer.scanTokens();
+    for (auto i: lexer.tokens) {
+        cout<<tokenTypeToString(i.type)<<" "<<i.token<<endl;
     }
-
-
-
 }

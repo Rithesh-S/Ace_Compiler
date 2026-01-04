@@ -19,7 +19,7 @@ class Lexer {
 
         char curr_;
         int pos_ = 0;
-        int line;
+        int line = 1;
 
         void scanToken();
         bool isAtEnd();

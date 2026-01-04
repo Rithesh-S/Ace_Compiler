@@ -12,7 +12,13 @@ void Lexer::scanTokens() {
 }
 
 void Lexer::scanToken() {
+    // std::cout<<curr_<<std::endl;
     switch(curr_) {
+        case '#': 
+            while(curr_ != '\n') next();
+            next();
+            break;
+
         case '(':
         case ')':
             consume(TokenType::PARENTHESES);
@@ -36,6 +42,10 @@ void Lexer::scanToken() {
 
         case '\n':
         case '\r':
+            line++;
+            next();
+            break;
+
         case ' ':
             next();
             break;
@@ -49,7 +59,7 @@ void Lexer::scanToken() {
                 }
                 consume(TokenType::NUMBER, num);
             } else {
-                std::cerr << "\033[31mERROR: Undefined Data Type Provided: " << curr_ << "\033[0m" << std::endl;
+                std::cerr << "\033[31mERROR: Undefined Character Provided: " << curr_ << " At: " << line << "," <<pos_ << "\033[0m" << std::endl;
                 next();
             }
             break;
@@ -71,6 +81,7 @@ void Lexer::consume(TokenType type, std::string num) {
 }
 
 void Lexer::next() {
+    if(isAtEnd()) return;
     pos_++;
     curr_ = source_[pos_];
 }
