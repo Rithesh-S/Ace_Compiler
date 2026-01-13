@@ -4,6 +4,7 @@
 #include "./tokenizer/lexer/Lexer.h"
 #include "./print/Printer.h"
 #include "./parser/parser/Parser.h"
+#include "./interpreter/Interpreter.h"
 
 using std::cout;
 using std::endl;
@@ -51,6 +52,10 @@ int main(int argc,char* argv[]) {
     // tokenTypeToString(lexer.tokens);
 
     Parser parser = Parser(lexer.tokens);
-    printTree(parser.parseToken().get());
+    parser.parseToken();
+    // printTree(parser.root.get());
+
+    Interpreter interpreter = Interpreter(std::move(parser.root));
+    cout<<interpreter.evaluate();
 
 }

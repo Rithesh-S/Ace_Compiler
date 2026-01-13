@@ -12,7 +12,7 @@ class Parser {
 public:
     std::unique_ptr<Expr> root = nullptr;
     Parser(std::vector<Token> tokens);
-    std::unique_ptr<Expr> parseToken();
+    void parseToken();
 
 private:
     int pos_ = 0;

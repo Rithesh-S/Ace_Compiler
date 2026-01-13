@@ -6,7 +6,7 @@ for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 @echo off
 echo %ESC%[33mCompiling...%ESC%[0m
 
-g++ ./base.cpp ./tokenizer/lexer/Lexer.cpp ./print/Printer.cpp ./parser/parser/Parser.cpp -o ./build/build -std=c++17 -g
+g++ ./base.cpp ./tokenizer/lexer/Lexer.cpp ./print/Printer.cpp ./parser/parser/Parser.cpp ./interpreter/Interpreter.cpp -o ./build/build -std=c++17 -g
 
 if %errorlevel% neq 0 (
     echo %ESC%[31mBuild Failed...%ESC%[0m

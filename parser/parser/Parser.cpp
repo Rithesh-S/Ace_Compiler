@@ -2,13 +2,11 @@
 
 Parser::Parser(std::vector<Token> tokens) : tokens_(move(tokens)) {};
 
-std::unique_ptr<Expr> Parser::parseToken()
-{
-    return parseExpression();
+void Parser::parseToken() {
+    root = parseExpression();
 }
 
-std::unique_ptr<Expr> Parser::parseExpression()
-{
+std::unique_ptr<Expr> Parser::parseExpression() {
     auto left = parseTerm();
     while (!isAtEnd() && (match('+') || match('-'))) {
         char opr = consume().token[0];
@@ -18,8 +16,7 @@ std::unique_ptr<Expr> Parser::parseExpression()
     return left;
 }
 
-std::unique_ptr<Expr> Parser::parseTerm()
-{
+std::unique_ptr<Expr> Parser::parseTerm() {
     auto left = parseFactor();
     while (!isAtEnd() && (match('*') || match('/'))) {
         char opr = consume().token[0];
