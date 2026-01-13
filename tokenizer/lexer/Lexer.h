@@ -3,15 +3,14 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <typeinfo>
 #include "../data/Token.h"
 #include "../data/TokenType.h"
 
 class Lexer {
     public:
+        std::vector<Token> tokens;
         Lexer(std::string source);
         void scanTokens();
-        std::vector<Token> tokens;
         
     private:
         std::string source_;

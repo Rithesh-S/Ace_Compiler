@@ -2,23 +2,11 @@
 #include <vector>
 #include <fstream>
 #include "./tokenizer/lexer/Lexer.h"
+#include "./print/Printer.h"
+#include "./parser/parser/Parser.h"
 
 using std::cout;
 using std::endl;
-
-std::string tokenTypeToString(TokenType type) {
-    switch (type) {
-        case TokenType::NUMBER:      return "NUMBER";
-        case TokenType::PLUS:        return "PLUS";
-        case TokenType::MINUS:       return "MINUS";
-        case TokenType::ASTERISK:    return "ASTERISK";
-        case TokenType::SLASH:       return "SLASH";
-        case TokenType::EQUAL:       return "EQUAL";
-        case TokenType::PARENTHESES: return "PARENTHESES";
-        case TokenType::END_OF_FILE: return "END_OF_FILE";
-        default:                     return "UNKNOWN";
-    }
-}
 
 bool fileFormatChecker(std::string fileName) {
     int pos = fileName.find('.');
@@ -60,7 +48,9 @@ int main(int argc,char* argv[]) {
     
     Lexer lexer = Lexer(lines);
     lexer.scanTokens();
-    for (auto i: lexer.tokens) {
-        cout<<tokenTypeToString(i.type)<<" "<<i.token<<endl;
-    }
+    // tokenTypeToString(lexer.tokens);
+
+    Parser parser = Parser(lexer.tokens);
+    printTree(parser.parseToken().get());
+
 }
