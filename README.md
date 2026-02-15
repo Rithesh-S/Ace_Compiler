@@ -1,6 +1,6 @@
-# Ace Compiler
+# Ace Interpreter
 
-Ace Compiler is a lightweight, tree-walk interpreter built in C++ for performing basic arithmetic operations. It follows a classic compiler pipeline: Lexical Analysis, Parsing (AST construction), and Interpretation.
+Ace Interpreter is a lightweight, tree-walk interpreter built in C++ for performing basic arithmetic operations. It follows a classic compiler pipeline: Lexical Analysis, Parsing (AST construction), and Interpretation.
 
 ## 🚀 Features
 
