@@ -2,7 +2,7 @@
 
 Ace Interpreter is a lightweight, tree-walk interpreter built in C++ for performing basic arithmetic operations. It follows a classic compiler pipeline: Lexical Analysis, Parsing (AST construction), and Interpretation.
 
-## 🚀 Features
+## Features
 
 * **Full Arithmetic Support**: Handles addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`).
 * **Operator Precedence**: Correctly evaluates expressions based on BODMAS/PEMDAS rules.
@@ -11,7 +11,7 @@ Ace Interpreter is a lightweight, tree-walk interpreter built in C++ for perform
 * **AST Visualization**: Includes a built-in printer to visualize the Abstract Syntax Tree structure.
 * **Error Handling**: Basic detection for invalid arguments and division by zero.
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 Ace-Compiler/
@@ -26,12 +26,12 @@ Ace-Compiler/
 
 ```
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 * **C++ Standard**: C++17 or higher is required (uses `std::unique_ptr` and `std::stod`).
 * **Compiler**: GCC/MinGW (specifically `g++`) or any C++17 compliant compiler.
 
-## 💻 Usage
+## Usage
 
 ### 1. Writing your code
 
@@ -58,7 +58,7 @@ Use the provided `runner.bat` to compile the engine and execute your script in o
 
 ---
 
-## ⚙️ How it Works
+## How it Works
 
 1. **Lexer**: Scans the `.a` file and breaks the text into a stream of `Tokens`. It ignores whitespace and skips anything following a `#`.
 2. **Parser**: Uses a **Recursive Descent** strategy to transform the Token stream into an **Abstract Syntax Tree (AST)**. It ensures that `*` and `/` are deeper in the tree than `+` and `-`.
@@ -66,7 +66,7 @@ Use the provided `runner.bat` to compile the engine and execute your script in o
 4. **Interpreter**: Performs a post-order traversal of the AST to calculate the final numerical result.
 5. **Printer**: Generates a visual "sideways" representation of the tree in the console for debugging.
 
-## ⚠️ Limitations
+## Limitations
 
 * No support for Unary Operators (e.g., `-5 + 3` will fail).
 * No support for variables or complex logic (if/loops).
