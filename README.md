@@ -49,9 +49,26 @@ Create a file with the `.a` extension inside the `src/` folder.
 
 ### 2. Running the Compiler
 
-Use the provided `runner.bat` to compile the engine and execute your script in one go.
+The `runner.bat` script handles both the compilation pipeline and quick testing execution flags.
+
+### Option A: Compile and Run (Recommended for changes)
+
+To build the binary using your modern C++17 configuration and immediately execute a script, use the `-c` flag followed by the path to your source file:
 
 ```bash
+# both of them are supported
+./runner.bat -c test.a
+
+./runner.bat -C test.a
+
+```
+
+### Option B: Direct Execution (Fast Run)
+
+If you haven't changed any C++ core codebase files and want to run your script using the existing compiled executable inside your build directory:
+
+```bash
+
 ./runner.bat test.a
 
 ```
